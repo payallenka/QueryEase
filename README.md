@@ -1,0 +1,2 @@
+# QueryEase
+ Simplified Database Interaction
