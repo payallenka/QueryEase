@@ -1,0 +1,18 @@
+def mnu():
+    print(" ")
+    print("datetime functions")
+    print(" ")
+    print("time ------------------------ to see the current time")
+    print("date ------------------------ to see the current date")
+    print("hour ------------------------ to see the current hour")
+    print("month ----------------------- to see the current month")
+    print("year ------------------------ to see the current year")
+    print("minute ---------------------- to see the current minute")
+    print("second ---------------------- to see the current second")
+    print("dayname --------------------- to see te current day name")
+    print("monthname ------------------- to see the current month name")
+    print("day of week ")
+    print("day of month ")
+    print("day of year ")
+    print(" ")
+    

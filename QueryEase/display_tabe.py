@@ -1,0 +1,75 @@
+def dly():
+    f=open("C:\\Users\\PAYAL-PIU\\AppData\\Local\\Programs\\Python\\Python39\\pyql\\details_.txt","r")
+    a=f.readline()
+    b=f.readline()
+    gh=f.readline()
+    f.close()
+    import mysql.connector as c
+    con=c.connect(host=a,user=b,password=gh)
+    cur=con.cursor()
+    cur.execute("show databases;")
+    l=cur.fetchall()
+    for i in l:
+        print(i)
+    print(" ")
+    print(" ")
+    try:
+        b=input("enter database for acessing the table ")
+        bc="use {}".format(b)
+        cur.execute(bc)
+        print(" ")
+        cur.execute("show tables;")
+        print(" ")
+        print("displaying existing tables")
+        print(" ")
+        qr=cur.fetchall()
+        print(" ")
+        for kl in qr:
+            print(kl)
+        print(" ")
+        gh = input("enter table name to be displayed ")
+        print(" ")
+        sr = "desc {}".format(gh)
+        cur.execute(sr)
+        ny = cur.fetchall()
+        print(" ")
+        print("decription of ",gh)
+        print(" ")
+        for qx in ny:
+            print(qx)
+        print(" ")
+        fg = "select * from {};".format(gh)
+        cur.execute(fg)
+        lo = cur.fetchall()
+        print()
+        print("displaying existing values")
+        print()
+        if len(lo)==0:
+            print()
+            print("no existing values in the table")
+            print()
+        else:
+            for ui in lo:
+                print(ui)
+            print()
+        print("enter the columns names that has to be displayed below")
+        cv = input("enter column names seperated by ','(comma), if all then enter '*'(star) ")
+        bn = input("enter condition if any, else press enter - where ")
+        if len(bn)!=0:
+            mp = "select {} from {} where {}".format(cv,gh,bn)
+            cur.execute(mp)
+            xw = cur.fetchall()
+            print(" ")
+            for bv in xw:
+                print(bv)
+        else:
+            pm = "select {} from {}".format(cv,gh)
+            cur.execute(pm)
+            xw = cur.fetchall()
+            print(" ")
+            for bv in xw:
+                print(bv)
+            print(" ")
+            print(" ")
+    except c.Error as asn:
+        print("something went wrong: {}".format(asn))
